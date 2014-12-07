@@ -7,6 +7,9 @@ This is a [LuaJIT FFI](http://luajit.org/ext_ffi.html) binding to the
 [type 4 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29).
 The source of the UUID can be a time based or random.
 
+The library is compatible with
+[Distributed Computing Environment](https://en.wikipedia.org/wiki/Distributed_Computing_Environment) (DCE).
+
 ## Available functions
 
 The module/library makes available the folllowing functions.
