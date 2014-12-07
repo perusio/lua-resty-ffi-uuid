@@ -74,7 +74,7 @@ local buf = ffi_new('char[?]', buffer_length)
 local time_val = ffi_new('timeval')
 
 -- The module table.
-local M = {}
+local M = { _NAME = 'uuid', _VERSION = '1.0' }
 
 --- Convert the binary representation of the UUID to a string.
 --
