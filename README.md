@@ -7,7 +7,7 @@ This is a [LuaJIT FFI](http://luajit.org/ext_ffi.html) binding to the
 [type 4 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29).
 The source of the UUID can be a time based or random.
 
-The library is compatible with
+The library is compatible with the
 [Distributed Computing Environment](https://en.wikipedia.org/wiki/Distributed_Computing_Environment) (DCE).
 
 ## Available functions
@@ -65,6 +65,10 @@ print(u.time(uuid1))
 `libuuid` must be installed for the library to be used. In
 [Debian](http://debian.org) the package is called
 [`libuuid1`](https://packages.debian.org/search?keywords=libuuid1).
+
+## TODO
+
+Put testing in place.
 
 ## License
 
