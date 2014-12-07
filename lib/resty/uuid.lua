@@ -64,6 +64,7 @@ ffi_cdef[[typedef unsigned char uuid_t[16];
 
 -- The buffer length.
 local buffer_length = 36
+-- Load the library for debian: libuuid1.so.1.
 local lib = os == 'OSX' and C or ffi_load('uuid.so.1')
 -- UUID data type: unsigned char 16 length vector.
 local uuid = ffi_new('uuid_t')
