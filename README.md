@@ -1,4 +1,4 @@
-# lua-resty-uuid
+# Lua UUID generating library relying on LuaJIT's FFI bindings to luibuuid
 
 ## Introduction
 
