@@ -1,4 +1,4 @@
-# Lua UUID generating library relying on LuaJIT's FFI bindings to luibuuid
+# Lua UUID generating library relying on LuaJIT's FFI bindings to libuuid
 
 ## Introduction
 
