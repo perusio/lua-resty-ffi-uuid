@@ -40,16 +40,16 @@ local setmetatable = setmetatable
 -- Avoid polluting the global environment.
 -- If we are in Lua 5.1 this function exists.
 if _G.setfenv then
-   setfenv(1, {})
+  setfenv(1, {})
 else -- Lua 5.2.
-   _ENV = nil
+  _ENV = nil
 end
 
 ffi_cdef[[typedef unsigned char uuid_t[16];
           typedef long time_t;
           typedef struct timeval {
-             time_t tv_sec;
-             time_t tv_usec;
+            time_t tv_sec;
+            time_t tv_usec;
                                  } timeval;
           void uuid_generate(uuid_t out);
           void uuid_generate_random(uuid_t out);
@@ -83,8 +83,8 @@ local M = { _NAME = 'uuid', _VERSION = '1.0' }
 -- @return string being the binary representation of the
 --
 local function unparse(bin_uuid)
-   lib.uuid_unparse(bin_uuid, buf)
-   return ffi_str(buf, buffer_length)
+  lib.uuid_unparse(bin_uuid, buf)
+  return ffi_str(buf, buffer_length)
 end
 
 --- Converts a string representation of an UUID to binary.
@@ -94,7 +94,7 @@ end
 -- @return binary representation of an uuid.
 --
 local function parse(str_uuid)
-   return lib.uuid_parse(str_uuid, uuid) == 0 and uuid or nil
+  return lib.uuid_parse(str_uuid, uuid) == 0 and uuid or nil
 end
 
 --- Generate an UUID.
@@ -102,8 +102,8 @@ end
 -- @return a string representation of an UUID.
 --
 function M.generate()
-   lib.uuid_generate(uuid)
-   return unparse(uuid)
+  lib.uuid_generate(uuid)
+  return unparse(uuid)
 end
 
 --- Generate a random number based M. It uses /dev/urandom as an
@@ -112,9 +112,9 @@ end
 -- @return string representation of the random number generator M.
 --
 function M.generate_random()
-   -- Generate a random number based M.
-   lib.uuid_generate_random(uuid)
-   return unparse(uuid)
+  -- Generate a random number based M.
+  lib.uuid_generate_random(uuid)
+  return unparse(uuid)
 end
 
 --- Generate a time based UUID.
@@ -123,8 +123,8 @@ end
 -- @return string representing a time based UUID.
 --
 function M.generate_time()
-   lib.uuid_generate_time(uuid)
-   return unparse(uuid)
+  lib.uuid_generate_time(uuid)
+  return unparse(uuid)
 end
 
 --- Generate a time based UUID in safe way.
@@ -133,9 +133,9 @@ end
 --         depending if the UUID time base generated is safe.
 --
 function M.generate_time_safe()
-   -- Generate a safe time based UUID.
-   local safe = lib.uuid_generate_time_safe(uuid) == 0
-   return unparse(uuid), safe
+  -- Generate a safe time based UUID.
+  local safe = lib.uuid_generate_time_safe(uuid) == 0
+  return unparse(uuid), safe
 end
 
 --- Get the type of UUID.
@@ -145,7 +145,7 @@ end
 -- @return integer representing the type of UUID.
 --
 function M.type(str_uuid)
-   return lib.uuid_type(parse(str_uuid))
+  return lib.uuid_type(parse(str_uuid))
 end
 
 --- Get the UUID variant.
@@ -155,7 +155,7 @@ end
 -- @return integer representing the type of UUID.
 --
 function M.variant(str_uuid)
-   return lib.uuid_variant(parse(str_uuid))
+  return lib.uuid_variant(parse(str_uuid))
 end
 
 --- Get the time representation seconds, microseconds of a given UUID.
@@ -166,8 +166,8 @@ end
 --         created.
 --
 function M.time(str_uuid)
-   local secs = lib.uuid_time(parse(str_uuid), time_val)
-   return tonumber(secs), tonumber(time_val.tv_usec)
+  local secs = lib.uuid_time(parse(str_uuid), time_val)
+  return tonumber(secs), tonumber(time_val.tv_usec)
 end
 
 -- Return the module table.
